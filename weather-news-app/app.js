@@ -1,14 +1,15 @@
 const request = require("request");
 const geoLocation =require('./utils/geoLocation')
 const citySearch = require('./utils/citySearch')
+const cityForecast = require('./utils/cityForecast')
 
-const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
+
+
 const ipLocationKey = "b1ec53c04f5a40039a9c8a2a1516c651";
 const newsKey = "7d12be6afdca4f62b59d6269a6dc8519";
 
 const ipUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipLocationKey}`;
 const newsUrl = `https://newsapi.org/v2/top-headlines?country=${"us"}&apiKey=${newsKey}&pageSize=5`;
-const cityWeatherUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${"261158"}?apikey=${accuWeatherKey}&metric=true`;
 
 
 
@@ -17,29 +18,21 @@ const cityWeatherUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1d
 // })
 
 
-citySearch(67.114544,24.870862,(err,res)=>{
+// citySearch(67.114544,24.870862,(err,res)=>{
+//     err? console.log(err) : console.log(res)
+// })
+
+
+
+
+
+
+cityForecast(261158,(err,res)=>{
     err? console.log(err) : console.log(res)
 })
 
 
-
-
 //  City Weather
-// request({ url: cityWeatherUrl, json: true }, (err, res) => {
-//     // console.log(res.body)
-//     if (err) {
-//       console.log("Unable to  connect to  Search City Service", err);
-//     } else if (res.body.Message) {
-//       // console.log(res.body.Code)
-//       console.log("Invalid City!...");
-//     } else {
-//       const weather = res.body;
-//       console.log(weather.Text);
-//       console.log('Temperature')
-//       console.log(weather.DailyForecasts[0].Temperature.Minimum.Value)
-//       console.log(weather.DailyForecasts[0].Temperature.Maximum.Value)
-//     }
-//   });
 
 
 // Ip location
