@@ -1,33 +1,20 @@
 const request = require("request");
+const geoLocation =require('./utils/geoLocation')
 
 const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
 const ipLocationKey = "b1ec53c04f5a40039a9c8a2a1516c651";
 const newsKey = "7d12be6afdca4f62b59d6269a6dc8519";
-const mapKey ="pk.eyJ1IjoidXNhbWFqYW1pbCIsImEiOiJjanVmdGRia3owZ2ZiNDVvZWE1a2NvaXp2In0.Jir13sZf16d_quz7ofyBVg";
 
 const ipUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipLocationKey}`;
 const newsUrl = `https://newsapi.org/v2/top-headlines?country=${"us"}&apiKey=${newsKey}&pageSize=5`;
 const cityWeatherUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${"261158"}?apikey=${accuWeatherKey}&metric=true`;
-const searchCityUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${accuWeatherKey}&q=${"ka309580"}`;
-const mapUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=${mapKey}&limit=1`;
+const searchCityUrl = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${accuWeatherKey}&q=${24.870862}%2C${67.114544}`;
 
 
-// Map GeoLocation   
 
-// request({ url: mapUrl, json: true }, (err, res) => {
-//   // console.log(res.body)
-//   if (err) {
-//     console.log("Unable to  connect to  weather service", err);
-//   } else if (res.body.message) {
-//     console.log("Location Not Found!...");
-//   } else {
-//     console.log(
-//       `Longitude ${res.body.features[0].center[0]}  , 
-//       Latitude ${res.body.features[0].center[1]}`
-//     );
-//   }
-// });
-
+geoLocation('karachi', (err,res)=>{
+  err? console.log(err) :console.log(res)
+})
 
 //  Search City 
 
@@ -87,22 +74,22 @@ const mapUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.
 
 
 // News
-request({ url: newsUrl, json: true }, (err, res) => {
-    // console.log(res.body)
-    if (err) {
-      console.log("Unable to  connect to  Search City Service", err);
-    } else if (res.body.message) {
-        // console.log(res.body.code)
-      console.log(res.body.message);
-    } else {
-      const news = res.body;
-      console.log(news.articles[0].source.name)
-      console.log('News')
-      console.log(news.articles[0].title)
-      console.log(news.articles[0].description)
-      console.log(news.articles[0].author)
-    }
-  });
+// request({ url: newsUrl, json: true }, (err, res) => {
+//     // console.log(res.body)
+//     if (err) {
+//       console.log("Unable to  connect to  Search City Service", err);
+//     } else if (res.body.message) {
+//         // console.log(res.body.code)
+//       console.log(res.body.message);
+//     } else {
+//       const news = res.body;
+//       console.log(news.articles[0].source.name)
+//       console.log('News')
+//       console.log(news.articles[0].title)
+//       console.log(news.articles[0].description)
+//       console.log(news.articles[0].author)
+//     }
+//   });
 
 
 // search city
