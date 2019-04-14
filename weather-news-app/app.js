@@ -1,15 +1,10 @@
 const request = require("request");
+
 const geoLocation =require('./utils/geoLocation')
 const citySearch = require('./utils/citySearch')
 const cityForecast = require('./utils/cityForecast')
 const countryNews = require('./utils/countryNews')
-
-
-
-const ipLocationKey = "b1ec53c04f5a40039a9c8a2a1516c651";
-
-const ipUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipLocationKey}`;
-
+const ipLocation = require('./utils/ipLocation')
 
 
 // geoLocation('karachi', (err,res)=>{
@@ -32,30 +27,13 @@ const ipUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipLocationKey}`;
 // })
 
 
-//  City Weather
-
-
-// Ip location
-// request({ url: ipUrl, json: true }, (err, res) => {
-//     // console.log(res.body)
-//     if (err) {
-//       console.log("Unable to  connect to  Search City Service", err);
-//     } else if (res.body.Message) {
-//       console.log("Invalid City!...");
-//     } else {
-//       const ipLocation = res.body;
-//       console.log(ipLocation.country_code2)
-//       console.log(ipLocation.city)
-//       console.log(ipLocation.ip)
-//       console.log('Geolocation')
-//       console.log(ipLocation.latitude)
-//       console.log(ipLocation.longitude)
-//     }
-//   });
 
 
 
-// News
+
+ipLocation(undefined,(err,res)=>{
+  err? console.log(err) : console.log(res)
+})
 
 
 // search city
