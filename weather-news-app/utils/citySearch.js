@@ -15,7 +15,8 @@ const citySearch = (latitude, longitude, callback) => {
       const city = res.body;
       callback(undefined, {
         key: city.Key,
-        name: city.LocalizedName
+        name: city.LocalizedName,
+        couttryId: city.Country.ID.toLowerCase()
       });
     }
   });

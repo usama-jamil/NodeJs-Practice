@@ -2,14 +2,13 @@ const request = require("request");
 const geoLocation =require('./utils/geoLocation')
 const citySearch = require('./utils/citySearch')
 const cityForecast = require('./utils/cityForecast')
+const countryNews = require('./utils/countryNews')
 
 
 
 const ipLocationKey = "b1ec53c04f5a40039a9c8a2a1516c651";
-const newsKey = "7d12be6afdca4f62b59d6269a6dc8519";
 
 const ipUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipLocationKey}`;
-const newsUrl = `https://newsapi.org/v2/top-headlines?country=${"us"}&apiKey=${newsKey}&pageSize=5`;
 
 
 
@@ -24,12 +23,13 @@ const newsUrl = `https://newsapi.org/v2/top-headlines?country=${"us"}&apiKey=${n
 
 
 
+// countryNews('us',(err,res)=>{
+//   err? console.log(err) : console.log(res)
+// })
 
-
-
-cityForecast(261158,(err,res)=>{
-    err? console.log(err) : console.log(res)
-})
+// cityForecast(261158,(err,res)=>{
+//     err? console.log(err) : console.log(res)
+// })
 
 
 //  City Weather
@@ -56,22 +56,6 @@ cityForecast(261158,(err,res)=>{
 
 
 // News
-// request({ url: newsUrl, json: true }, (err, res) => {
-//     // console.log(res.body)
-//     if (err) {
-//       console.log("Unable to  connect to  Search City Service", err);
-//     } else if (res.body.message) {
-//         // console.log(res.body.code)
-//       console.log(res.body.message);
-//     } else {
-//       const news = res.body;
-//       console.log(news.articles[0].source.name)
-//       console.log('News')
-//       console.log(news.articles[0].title)
-//       console.log(news.articles[0].description)
-//       console.log(news.articles[0].author)
-//     }
-//   });
 
 
 // search city
