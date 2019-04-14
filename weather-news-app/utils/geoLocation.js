@@ -13,8 +13,8 @@ const geoLocation = (city, callback) => {
       callback("Location Not Found!...");
     } else {
       callback(undefined, {
-        latitude: res.body.features[0].center[0],
-        longitude: res.body.features[0].center[1],
+        longitude: res.body.features[0].center[0],
+        latitude: res.body.features[0].center[1],
         location: res.body.features[0].place_name
       });
     }
