@@ -1,0 +1,172 @@
+//ip say location
+{
+    "ip": "111.88.39.211",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "country_code2": "PK",
+    "country_code3": "PAK",
+    "country_name": "Pakistan",
+    "country_capital": "Islamabad",
+    "state_prov": "Punjab",
+    "district": "Gulberg III",
+    "city": "Lahore",
+    "zipcode": "57760",
+    "latitude": "31.5113",
+    "longitude": "74.3454",
+    "is_eu": false,
+    "calling_code": "+92",
+    "country_tld": ".pk",
+    "languages": "ur-PK,en-PK,pa,sd,ps,brh",
+    "country_flag": "https://ipgeolocation.io/static/flags/pk_64.png",
+    "isp": "Worldcall Telecom Ltd WLL",
+    "connection_type": "",
+    "organization": "Worldcall Telecom Ltd",
+    "geoname_id": "1172451",
+    "currency": {
+        "code": "PKR",
+        "name": "Pakistan Rupee",
+        "symbol": "₨"
+    },
+    "time_zone": {
+        "name": "Asia/Karachi",
+        "offset": 5,
+        "current_time": "2019-04-13 21:09:26.031+0500",
+        "current_time_unix": 1555171766.031,
+        "is_dst": false,
+        "dst_savings": 0
+    }
+}
+
+// weather with city code
+{
+    "Headline": {
+        "EffectiveDate": "2019-04-15T07:00:00+05:00",
+        "EffectiveEpochDate": 1555293600,
+        "Severity": 3,
+        "Text": "A thundershower Monday",
+        "Category": "thunderstorm",
+        "EndDate": "2019-04-15T19:00:00+05:00",
+        "EndEpochDate": 1555336800,
+        "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/extended-weather-forecast/261158?lang=en-us",
+        "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?lang=en-us"
+    },
+    "DailyForecasts": [
+        {
+            "Date": "2019-04-13T07:00:00+05:00",
+            "EpochDate": 1555120800,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 79,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 95,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 4,
+                "IconPhrase": "Intermittent clouds"
+            },
+            "Night": {
+                "Icon": 38,
+                "IconPhrase": "Mostly cloudy"
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=1&lang=en-us",
+            "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=1&lang=en-us"
+        }
+    ]
+}
+
+// search city
+{
+    "Version": 1,
+    "Key": "332286",
+    "Type": "City",
+    "Rank": 45,
+    "LocalizedName": "Hollywood",
+    "EnglishName": "Hollywood",
+    "PrimaryPostalCode": "33020",
+    "Region": {
+        "ID": "NAM",
+        "LocalizedName": "North America",
+        "EnglishName": "North America"
+    },
+    "Country": {
+        "ID": "US",
+        "LocalizedName": "United States",
+        "EnglishName": "United States"
+    },
+    "AdministrativeArea": {
+        "ID": "FL",
+        "LocalizedName": "Florida",
+        "EnglishName": "Florida",
+        "Level": 1,
+        "LocalizedType": "State",
+        "EnglishType": "State",
+        "CountryID": "US"
+    },
+    "TimeZone": {
+        "Code": "EDT",
+        "Name": "America/New_York",
+        "GmtOffset": -4,
+        "IsDaylightSaving": true,
+        "NextOffsetChange": "2019-11-03T06:00:00Z"
+    },
+    "GeoPosition": {
+        "Latitude": 26.011,
+        "Longitude": -80.149,
+        "Elevation": {
+            "Metric": {
+                "Value": 3,
+                "Unit": "m",
+                "UnitType": 5
+            },
+            "Imperial": {
+                "Value": 9,
+                "Unit": "ft",
+                "UnitType": 0
+            }
+        }
+    },
+    "IsAlias": false,
+    "SupplementalAdminAreas": [
+        {
+            "Level": 2,
+            "LocalizedName": "Broward",
+            "EnglishName": "Broward"
+        }
+    ],
+    "DataSets": [
+        "Alerts",
+        "DailyAirQualityForecast",
+        "DailyPollenForecast",
+        "ForecastConfidence",
+        "MinuteCast"
+    ]
+}
+
+
+
+// newsapi
+"status": "ok",
+    "totalResults": 38,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Bbc.com"
+            },
+            "author": "https://www.facebook.com/bbcnews",
+            "title": "Sudan coup: Military leader vows to 'uproot regime' - BBC News",
+            "description": "Military council leader Lt-Gen Abdel Fattah Abdelrahman pledges to restructure the country.",
+            "url": "https://www.bbc.com/news/world-africa-47918736",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/81B4/production/_106440233_053426644.jpg",
+            "publishedAt": "2019-04-13T14:26:15Z",
+            "content": "Image copyright AFP/HO/SUDAN TV Image caption Lt-Gen Abdel Fattah Abdelrahman also announced the end of a curfew and the release of jailed protesters The leader of Sudan's interim military council has vowed to \"uproot the regime\" two days after a military cou… [+4742 chars]"
+        }]
