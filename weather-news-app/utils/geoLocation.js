@@ -23,8 +23,9 @@ const geoLocation = (city, callback) => {
             `You live in ${chalk.inverse.greenBright(this.location)}`
           );
           console.log("Coordinates:");
-          console.log(`Latitide: ${this.latitude}`);
-          console.log(`Longitude: ${this.longitude}`);
+          console.log(`Latitide: ${chalk.green.inverse(this.latitude)}`);
+          console.log(`Longitude: ${chalk.yellow.inverse(this.longitude)}`);
+          console.log(``)
         }
       });
     }

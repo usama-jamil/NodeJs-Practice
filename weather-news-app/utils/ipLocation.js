@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const request = require("request");
 
 const ipLocationKey = "b1ec53c04f5a40039a9c8a2a1516c651";
@@ -16,7 +17,11 @@ const ipLocation = (ip = "", callback) => {
         latitude: ipLocation.latitude,
         longitude: ipLocation.longitude,
         readable(){
-          console.log(` Finding Location through your ip ${this.ip}`)
+          console.log(`Finding Location through your ip ${chalk.inverse.bold(this.ip)}`)
+          console.log("Coordinates:");
+          console.log(`Latitide: ${chalk.green.inverse(this.latitude)}`);
+          console.log(`Longitude: ${chalk.yellow.inverse(this.longitude)}`);
+          console.log(``)
         }
       });
     }

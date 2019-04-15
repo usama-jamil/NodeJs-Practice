@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const request = require("request");
 
 
@@ -31,13 +32,14 @@ const countryNews = (countryId, callback) => {
       callback(undefined,{ miniArticles,
          readable(){
            this.miniArticles.map(article=>{
-             console.log(`${article.title}`)
+             console.log(`${chalk.cyan.inverse(article.title)}`)
              console.log(``)
-             console.log(`${article.description}`)
+             console.log(`${chalk.yellow.inverse(article.description)}`)
              console.log(``)
-             console.log(`${article.source}`)
-             console.log(`${article.author}`)
-           })
+             console.log(`${chalk.magenta(article.source)}`)
+             console.log(`${chalk.whiteBright(article.author?article.author:'')}`)
+             console.log(``)
+            })
          }
       });
     }

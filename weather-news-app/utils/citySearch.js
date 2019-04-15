@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const request = require("request");
 
 const accuWeatherKey = "mWW36XM9XBprnpfIZCKovK5GKL3HoB2i";
@@ -18,7 +19,8 @@ const citySearch = (latitude, longitude, callback) => {
         name: city.LocalizedName,
         countryId: city.Country.ID.toLowerCase(),
         readable(){
-          console.log( `You are in ${this.name}`)
+          console.log( `You are in ${chalk.redBright(this.name)}`)
+          console.log(``)
         }
       });
     }

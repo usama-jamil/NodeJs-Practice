@@ -7,24 +7,25 @@ const countryNews = require("./utils/countryNews");
 const ipLocation = require("./utils/ipLocation");
 
 
-ipLocation(undefined,(err,res)=>{
-  if(err) {console.log(err)} else {
-    res.readable();
-    citySearch(res.latitude, res.longitude, searchRes);
-  }
-})
-
-
-
-
-// geoLocation("karachi", (err, res) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     res.readable();
-//     citySearch(res.latitude, res.longitude, searchRes);
-//   }
-// });
+if (process.argv[2]) {
+  geoLocation(process.argv[2], (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.readable();
+      citySearch(res.latitude, res.longitude, searchRes);
+    }
+  });
+} else {
+  ipLocation(undefined, (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.readable();
+      citySearch(res.latitude, res.longitude, searchRes);
+    }
+  });
+}
 
 const searchRes = (err, res) => {
   if (err) {
@@ -40,15 +41,13 @@ const forecastRes = (err, res) => {
     console.log(err);
   } else {
     res.readable();
-    countryNews(res.countryId,newsRes)
-    
+    countryNews(res.countryId, newsRes);
   }
 };
 
-const newsRes =(err,res)=>{
-  err? console.log(err) : res.readable()
-}
-
+const newsRes = (err, res) => {
+  err ? console.log(err) : res.readable();
+};
 
 // search city
 // http://dataservice.accuweather.com/locations/v1/cities/search?apikey=pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF&q=karachi
