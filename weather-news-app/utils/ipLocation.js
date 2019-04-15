@@ -14,7 +14,10 @@ const ipLocation = (ip = "", callback) => {
       callback(undefined, {
         ip: ipLocation.ip,
         latitude: ipLocation.latitude,
-        longitude: ipLocation.longitude
+        longitude: ipLocation.longitude,
+        readable(){
+          console.log(` Finding Location through your ip ${this.ip}`)
+        }
       });
     }
   });

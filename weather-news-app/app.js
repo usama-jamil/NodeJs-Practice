@@ -1,39 +1,53 @@
 const request = require("request");
 
-const geoLocation =require('./utils/geoLocation')
-const citySearch = require('./utils/citySearch')
-const cityForecast = require('./utils/cityForecast')
-const countryNews = require('./utils/countryNews')
-const ipLocation = require('./utils/ipLocation')
-
-
-// geoLocation('karachi', (err,res)=>{
-//   err? console.log(err) : console.log(res)
-// })
-
-
-// citySearch(67.114544,24.870862,(err,res)=>{
-//     err? console.log(err) : console.log(res)
-// })
-
-
-
-// countryNews('us',(err,res)=>{
-//   err? console.log(err) : console.log(res)
-// })
-
-// cityForecast(261158,(err,res)=>{
-//     err? console.log(err) : console.log(res)
-// })
-
-
-
-
+const geoLocation = require("./utils/geoLocation");
+const citySearch = require("./utils/citySearch");
+const cityForecast = require("./utils/cityForecast");
+const countryNews = require("./utils/countryNews");
+const ipLocation = require("./utils/ipLocation");
 
 
 ipLocation(undefined,(err,res)=>{
-  err? console.log(err) : console.log(res)
+  if(err) {console.log(err)} else {
+    res.readable();
+    citySearch(res.latitude, res.longitude, searchRes);
+  }
 })
+
+
+
+
+// geoLocation("karachi", (err, res) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     res.readable();
+//     citySearch(res.latitude, res.longitude, searchRes);
+//   }
+// });
+
+const searchRes = (err, res) => {
+  if (err) {
+    console.log(err);
+  } else {
+    res.readable();
+    cityForecast(res.key, res.countryId, forecastRes);
+  }
+};
+
+const forecastRes = (err, res) => {
+  if (err) {
+    console.log(err);
+  } else {
+    res.readable();
+    countryNews(res.countryId,newsRes)
+    
+  }
+};
+
+const newsRes =(err,res)=>{
+  err? console.log(err) : res.readable()
+}
 
 
 // search city

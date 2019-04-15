@@ -14,7 +14,7 @@ const countryNews = (countryId, callback) => {
       callback(res.body.message);
     }
     if (res.body.articles.length === 0) {
-      callback("There is no News...!");
+      callback("There is no News for that country...!");
     } else {
       const articles = res.body.articles;
 
@@ -27,7 +27,19 @@ const countryNews = (countryId, callback) => {
         };
       });
 
-      callback(undefined, miniArticles);
+
+      callback(undefined,{ miniArticles,
+         readable(){
+           this.miniArticles.map(article=>{
+             console.log(`${article.title}`)
+             console.log(``)
+             console.log(`${article.description}`)
+             console.log(``)
+             console.log(`${article.source}`)
+             console.log(`${article.author}`)
+           })
+         }
+      });
     }
   });
 };

@@ -16,7 +16,10 @@ const citySearch = (latitude, longitude, callback) => {
       callback(undefined, {
         key: city.Key,
         name: city.LocalizedName,
-        couttryId: city.Country.ID.toLowerCase()
+        countryId: city.Country.ID.toLowerCase(),
+        readable(){
+          console.log( `You are in ${this.name}`)
+        }
       });
     }
   });

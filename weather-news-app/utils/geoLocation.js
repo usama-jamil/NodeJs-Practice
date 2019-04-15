@@ -1,6 +1,8 @@
 const request = require("request");
+const chalk = require("chalk");
 
-const mapKey = "pk.eyJ1IjoidXNhbWFqYW1pbCIsImEiOiJjanVmdGRia3owZ2ZiNDVvZWE1a2NvaXp2In0.Jir13sZf16d_quz7ofyBVg";
+const mapKey =
+  "pk.eyJ1IjoidXNhbWFqYW1pbCIsImEiOiJjanVmdGRia3owZ2ZiNDVvZWE1a2NvaXp2In0.Jir13sZf16d_quz7ofyBVg";
 const geoLocation = (city, callback) => {
   const mapUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapKey}&limit=1`;
 
@@ -15,7 +17,15 @@ const geoLocation = (city, callback) => {
       callback(undefined, {
         longitude: res.body.features[0].center[0],
         latitude: res.body.features[0].center[1],
-        location: res.body.features[0].place_name
+        location: res.body.features[0].place_name,
+        readable() {
+          console.log(
+            `You live in ${chalk.inverse.greenBright(this.location)}`
+          );
+          console.log("Coordinates:");
+          console.log(`Latitide: ${this.latitude}`);
+          console.log(`Longitude: ${this.longitude}`);
+        }
       });
     }
   });
