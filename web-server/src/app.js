@@ -18,7 +18,7 @@ app.use(express.static(publicDirectoryName))
 
 app.get('',(req,res)=>{
     res.render('index',{
-        title:'homePage',
+        title:'HomePage',
         name:'Usama Jmail'
     })
 })
@@ -32,7 +32,7 @@ app.get('/about',(req,res)=>{
 
 app.get('/help',(req,res)=>{
     res.render('help',{
-        title: 'dynamic  Handlebar file',
+        title: 'Help...!',
         name: 'Usama Jamil'
     })
 })
