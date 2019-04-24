@@ -42,6 +42,22 @@ app.get('/weather',(req,res)=>{
         city:'karachi',
         temperature:30
     })
+})  
+
+app.get('/help/*',(req,res)=>{
+    res.render('404',{
+        title: '404  Article',
+        name: 'Usama Jamil',
+        errorMessage:'Help article Not found'
+    })
+})
+
+app.get('*',(req,res)=>{
+    res.render('404',{
+        title: '404 Page',
+        name: 'Usama Jamil',
+        errorMessage: "Page Not Found"
+    })
 })
 
 app.listen(3000 , ()=> console.log('Server is running on 3000'))
