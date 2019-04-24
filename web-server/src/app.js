@@ -37,10 +37,17 @@ app.get('/help',(req,res)=>{
     })
 })
 
-app.get('/weather',(req,res)=>{
+app.get('/city',(req,res)=>{
+
+    if(!req.query.city){
+        return res.send({
+            error: 'You must provide city'
+        })
+    }
+
     res.send({
-        city:'karachi',
-        temperature:30
+        city:req.query.city,
+        temperature:30,
     })
 })  
 
