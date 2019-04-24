@@ -1,7 +1,9 @@
 const path = require('path')
+
 const express = require('express')
 const hbs = require('hbs')
 
+const cityToday =require('./utils/cityToday')
 // console.log(path.join(__dirname,'../public'))
 
 const app = express()
@@ -39,12 +41,12 @@ app.get('/help',(req,res)=>{
 
 app.get('/city',(req,res)=>{
 
+    console.log(cityToday())
     if(!req.query.city){
-        return res.send({
-            error: 'You must provide city'
-        })
+        return res.send(cityToday())
     }
 
+    
     res.send({
         city:req.query.city,
         temperature:30,
