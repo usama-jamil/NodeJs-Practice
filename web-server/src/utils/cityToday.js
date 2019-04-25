@@ -5,22 +5,24 @@ const countryNews = require("./countryNews");
 const ipLocation = require("./ipLocation");
 
 
-const cityToday = (city , send)=>{
+const cityToday = (city ='new york', send)=>{
 
     if (city) {
         geoLocation(city, (err, res) => {
           if (err) {
-            return  err;
+            send({...res,err});
+            // return  err;
           } else {
-            return res;
+            // return res;
             // res.readable();
-            citySearch(res.latitude, res.longitude, searchRes);
+            citySearch(res,send,searchRes);
           }
         });
       } else {
         ipLocation(undefined, (err, res) => {
           if (err) {
-            return  err;
+            send({...res,err});
+            // return  err;
           } else {
             // callBack(res)
             // return res;
@@ -32,7 +34,8 @@ const cityToday = (city , send)=>{
       
       const searchRes = (err, res ,send) => {
         if (err) {
-            return  err;
+          send({...res,err});
+          // return  err;
         } else {
           // send(res)
           // res.readable();
@@ -42,7 +45,8 @@ const cityToday = (city , send)=>{
       
       const forecastRes = (err, res ,send) => {
         if (err) {
-            return  err;
+          send({...res,err});
+          // return  err;
         } else {
           // send(res)
           // res.readable();

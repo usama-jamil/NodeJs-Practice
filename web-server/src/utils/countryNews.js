@@ -8,10 +8,10 @@ const countryNews = (newsRes ,send, callback) => {
 
   request({ url: newsUrl, json: true }, (err, res) => {
     if (err) {
-      callback("Unable to  connect to  Search City Service");
+      callback("Unable to  connect to  Search City Service",newsRes,send);
     } else if (res.body.code) {
       // console.log(res.body.code)
-      callback(res.body.message);
+      callback(res.body.message,newsRes,send);
     }
     if (res.body.articles.length === 0) {
       callback("There is no News for that country...!",newsRes,send);

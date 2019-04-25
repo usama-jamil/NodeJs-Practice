@@ -7,10 +7,10 @@ const citySearch = (geoRes, send ,callback) => {
 
   request({ url: searchCityUrl, json: true }, (err, res) => {
     if (err) {
-      callback("Unable to  connect to  Search City Service");
+      callback("Unable to  connect to  Search City Service",geoRes,send);
     } else if (res.body.Code) {
-        console.log(res.body.Message);
-      callback("City Not Found!...");
+        // console.log(res.body.Message);
+      callback(res.body.Message,geoRes,send);
     } else {
       const city = res.body;
       callback(undefined, {

@@ -3,16 +3,15 @@ const request = require("request");
 const accuWeatherKey = "mWW36XM9XBprnpfIZCKovK5GKL3HoB2i";
 // const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
 const cityForecast = (forecastRes, send, callback) => {
-  console.log(forecastRes)
   const cityWeatherUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${forecastRes.key}?apikey=${accuWeatherKey}&metric=true`;
 
   request({ url: cityWeatherUrl, json: true }, (err, res) => {
     // console.log(res.body)
     if (err) {
-      console.log("Unable to  connect to  Search City Service", err);
+      callback("Unable to  connect to  Search City Service", forecastRes,send);
     } else if (res.body.Code) {
-      console.log(res.body.Message);
-      callback("Invalid City!...");
+      // console.log(res.body.Message);
+      callback(res.body.Message,forecastRes,send);
     } else {
       const weather = res.body;
 
