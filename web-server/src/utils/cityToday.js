@@ -5,7 +5,7 @@ const countryNews = require("./countryNews");
 const ipLocation = require("./ipLocation");
 
 
-const cityToday = (city ='new york', send)=>{
+const cityToday = (city , send)=>{
 
     if (city) {
         geoLocation(city, (err, res) => {

@@ -20,7 +20,7 @@ app.use(express.static(publicDirectoryName))
 
 app.get('',(req,res)=>{
     res.render('index',{
-        title:'HomePage',
+        title:'City Today',
         name:'Usama Jmail'
     })
 })
@@ -46,14 +46,9 @@ app.get('/city',(req,res)=>{
     //     return res.send(cityToday())
     // }
 
-   cityToday(undefined,cityRes =>{
+   cityToday(req.query.cityName,cityRes =>{
        res.send(cityRes)
    })
-    
-    // res.send({
-    //     city:req.query.city,
-    //     temperature:30,
-    // })
 })  
 
 app.get('/help/*',(req,res)=>{

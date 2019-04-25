@@ -9,7 +9,38 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <p>use this to get City today</p>
+        <p class="intro">Use this to get City today</p>
+
+        <form>
+            <input placeholder="City Name">
+            <button>Search</button>
+        </form>
+
+        <h1 id='cityName'>Karachi</h1>
+        
+        <h2>Location</h2>
+
+        <h5 id='place'>Newyork Kuafor, Ankuva avm no:58, Ankara, Ankara, Turkey</h5>
+
+        <h4>Longitude: <strong id='longitude'>32.755886</strong></h4>
+        <h4>Latitude: <strong id='latitude'>39.883713</strong></h4>
+
+        <h2>Weather</h2>
+        <h4>Headline: <strong id='headline'>Pleasant this weekend</strong></h4>
+
+        <h4>MinTemperature: <strong id='minTemperature'>7.5</strong> C</h4>
+        <h4>MaxTemperature: <strong id='maxTemperature'>22.1</strong> C</h4>
+        
+        <h4>Day: <strong id='day'>Partly sunny</strong></h4>
+        <h4>Night: <strong id='night'>Mostly clear</strong></h4>
+        
+        <h2>News</h2>
+        <div id='news'></div>
+
+        <h4 >Urla'da patlama: 1 şehit, 1 yaralı - Cumhuriyet</h4>
+        <p>İzmir'in Urla ilçesindeki askeri birlikte eğitim sırasında yaşanan patlamada bir asker şehit oldu bir asker ise yaralandı.</p>
+        <strong>BloombergHT</strong><br/>
+        <a>Bloomberght.com</a>
     </div>
    
 {{>footer}}
