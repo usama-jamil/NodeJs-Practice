@@ -5,14 +5,15 @@ const countryNews = require("./countryNews");
 const ipLocation = require("./ipLocation");
 
 
-const cityToday = city =>{
+const cityToday = (city , send)=>{
 
     if (city) {
         geoLocation(city, (err, res) => {
           if (err) {
             return  err;
           } else {
-            res.readable();
+            return res;
+            // res.readable();
             citySearch(res.latitude, res.longitude, searchRes);
           }
         });
@@ -21,27 +22,31 @@ const cityToday = city =>{
           if (err) {
             return  err;
           } else {
-             res.readable();
-            citySearch(res.latitude, res.longitude, searchRes);
+            // callBack(res)
+            // return res;
+            // res.readable();
+            citySearch(res,send,searchRes);
           }
         });
       }
       
-      const searchRes = (err, res) => {
+      const searchRes = (err, res ,send) => {
         if (err) {
             return  err;
         } else {
-          res.readable();
-          cityForecast(res.key, res.countryId, forecastRes);
+          // send(res)
+          // res.readable();
+          cityForecast(res,send, forecastRes);
         }
       };
       
-      const forecastRes = (err, res) => {
+      const forecastRes = (err, res ,send) => {
         if (err) {
             return  err;
         } else {
-          res.readable();
-          countryNews(res.countryId, newsRes);
+          send(res)
+          // res.readable();
+          // countryNews(res.countryId, newsRes);
         }
       };
       
