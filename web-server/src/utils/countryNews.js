@@ -3,8 +3,8 @@ const request = require("request");
 
 const newsKey = "7d12be6afdca4f62b59d6269a6dc8519";
 
-const countryNews = (countryId, callback) => {
-  const newsUrl = `https://newsapi.org/v2/top-headlines?country=${countryId}&apiKey=${newsKey}&pageSize=5`;
+const countryNews = (newsRes ,send, callback) => {
+  const newsUrl = `https://newsapi.org/v2/top-headlines?country=${newsRes.countryId}&apiKey=${newsKey}&pageSize=5`;
 
   request({ url: newsUrl, json: true }, (err, res) => {
     if (err) {
@@ -14,7 +14,7 @@ const countryNews = (countryId, callback) => {
       callback(res.body.message);
     }
     if (res.body.articles.length === 0) {
-      callback("There is no News for that country...!");
+      callback("There is no News for that country...!",newsRes,send);
     } else {
       const articles = res.body.articles;
 
@@ -28,7 +28,8 @@ const countryNews = (countryId, callback) => {
       });
 
 
-      callback(undefined,{ miniArticles,
+      callback(undefined,{ ...newsRes,
+        miniArticles,
          readable(){
            this.miniArticles.map(article=>{
              console.log(`${article.title}`)
@@ -40,7 +41,9 @@ const countryNews = (countryId, callback) => {
              console.log(``)
             })
          }
-      });
+      },
+      send
+      );
     }
   });
 };

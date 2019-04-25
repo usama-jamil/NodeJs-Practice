@@ -44,14 +44,14 @@ const cityToday = (city , send)=>{
         if (err) {
             return  err;
         } else {
-          send(res)
+          // send(res)
           // res.readable();
-          // countryNews(res.countryId, newsRes);
+          countryNews(res,send,newsRes);
         }
       };
       
-      const newsRes = (err, res) => {
-        err ?  err : res;
+      const newsRes = (err, res,send) => {
+        err ?  send({...res,err}) : send(res);
       };
       
 }
