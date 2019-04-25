@@ -41,16 +41,16 @@ app.get('/help',(req,res)=>{
 
 app.get('/city',(req,res)=>{
 
-    console.log(cityToday())
+    // console.log(cityToday())
     if(!req.query.city){
-        return res.send(cityToday())
+        cityToday()
     }
 
     
-    res.send({
-        city:req.query.city,
-        temperature:30,
-    })
+    // res.send({
+    //     city:req.query.city,
+    //     temperature:30,
+    // })
 })  
 
 app.get('/help/*',(req,res)=>{

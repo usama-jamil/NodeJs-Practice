@@ -12,6 +12,7 @@ const cityToday = city =>{
           if (err) {
             return  err;
           } else {
+            return res;
             res.readable();
             citySearch(res.latitude, res.longitude, searchRes);
           }
@@ -21,7 +22,7 @@ const cityToday = city =>{
           if (err) {
             return  err;
           } else {
-             res.readable();
+             return res;
             citySearch(res.latitude, res.longitude, searchRes);
           }
         });
