@@ -2,8 +2,8 @@ const request = require("request");
 
 const accuWeatherKey = "mWW36XM9XBprnpfIZCKovK5GKL3HoB2i";
 // const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
-const citySearch = (latitude, longitude, callback) => {
-  const searchCityUrl = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${accuWeatherKey}&q=${latitude}%2C${longitude}`;
+const citySearch = (geoRes, send ,callback) => {
+  const searchCityUrl = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${accuWeatherKey}&q=${geoRes.latitude}%2C${geoRes.longitude}`;
 
   request({ url: searchCityUrl, json: true }, (err, res) => {
     if (err) {
@@ -14,6 +14,7 @@ const citySearch = (latitude, longitude, callback) => {
     } else {
       const city = res.body;
       callback(undefined, {
+        ...geoRes,
         key: city.Key,
         name: city.LocalizedName,
         countryId: city.Country.ID.toLowerCase(),
@@ -21,7 +22,9 @@ const citySearch = (latitude, longitude, callback) => {
           console.log( `You are in ${this.name}`)
           console.log(``)
         }
-      });
+      },
+      send
+      );
     }
   });
 };
