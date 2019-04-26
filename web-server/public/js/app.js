@@ -34,7 +34,7 @@ cityTodayForm.addEventListener('submit', e =>{
           res.json().then(data => {
                
                cityName.innerText = data.name
-               place.innerText = data.location
+               place.innerText = data.ip ? data.ip : data.location
                longitude.innerText = data.longitude
                latitude.innerText = data.latitude
 
@@ -44,13 +44,13 @@ cityTodayForm.addEventListener('submit', e =>{
                day.innerText =data.Day
                night.innerText = data.Night
 
-               news.innerHTML = data.miniArticles && data.miniArticles.map(article =>(
+               news.innerHTML = data.miniArticles ? data.miniArticles.map(article =>(
                    `<h4 style="color:#408E66;">${article.title}</h4>
                     <p style="color:#373737;">${article.description}</p>
                     <strong style="color:#8FB5FE;">${article.author}</strong><br/>
                     <a>${article.source}</a>`
-               ))
-                    if(data.err){
+               )) : ''
+                    if(data.err && data.err !== "There is no News for that country...!"){
                          loading.style.color='#ef3034'
                          loading.innerText = data.err
                     }else{
