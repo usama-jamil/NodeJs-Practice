@@ -20,29 +20,44 @@ const night = document.getElementById('night')
 
 const news = document.getElementById('news')
 
+const dataDisplay = document.getElementById('data')
+const loading = document.getElementById('loading')
+
 cityTodayForm.addEventListener('submit', e =>{
      e.preventDefault()
      
-     fetch(`http://localhost:3000/city?cityName=${search.value}`).then(res =>{
-          res.json().then(data => {
+     loading.style.display ='block'
+     dataDisplay.style.display = 'none'     
 
+     fetch(`http://localhost:3000/city?cityName=${search.value}`).then(res =>{
+
+          res.json().then(data => {
+               
                cityName.innerText = data.name
                place.innerText = data.location
                longitude.innerText = data.longitude
                latitude.innerText = data.latitude
 
-               headline.innerText =data.headline
-               minTemperature.innerText  = data.minTemperature
-               maxTemperature.innerText = data.maxTemperature
-               day.innerText =data.day
-               night.innerText = data.night
+               headline.innerText =data.Headline
+               minTemperature.innerText  = data.MinTemperature
+               maxTemperature.innerText = data.MaxTemperature
+               day.innerText =data.Day
+               night.innerText = data.Night
 
                news.innerHTML = data.miniArticles && data.miniArticles.map(article =>(
-                   `<h4>${article.title}</h4>
-                    <p>${article.description}</p>
-                    <strong>${article.author}</strong><br/>
+                   `<h4 style="color:#408E66;">${article.title}</h4>
+                    <p style="color:#373737;">${article.description}</p>
+                    <strong style="color:#8FB5FE;">${article.author}</strong><br/>
                     <a>${article.source}</a>`
                ))
+                    if(data.err){
+                         loading.style.color='#ef3034'
+                         loading.innerText = data.err
+                    }else{
+                         loading.style.display ='none'
+                         dataDisplay.style.display = 'block'     
+                    }
+
           })
      })
      

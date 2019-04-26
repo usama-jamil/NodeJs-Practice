@@ -1,7 +1,7 @@
 const request = require("request");
 
-const accuWeatherKey = "mWW36XM9XBprnpfIZCKovK5GKL3HoB2i";
-// const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
+// const accuWeatherKey = "mWW36XM9XBprnpfIZCKovK5GKL3HoB2i";
+const accuWeatherKey = "pszNmXwiUGJ8kkufCpGZ1B5Xq1BZKobF";
 const cityForecast = (forecastRes, send, callback) => {
   const cityWeatherUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${forecastRes.key}?apikey=${accuWeatherKey}&metric=true`;
 

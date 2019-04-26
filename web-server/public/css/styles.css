@@ -52,3 +52,11 @@ button{
     color:  white;
     padding: 8px;
 }
+
+h2#loading {
+    display: none;
+}
+
+div#data {
+    display: none;
+}
